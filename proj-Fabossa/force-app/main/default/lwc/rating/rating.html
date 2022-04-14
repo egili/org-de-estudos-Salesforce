@@ -1,0 +1,20 @@
+<template>
+    <div class="background-assignment">
+        <h1 class="label-style">Avaliação</h1>
+        <section style="display: flex; flex-direction: row; justify-content: space-around;">
+
+            <lightning-input label={avaliacaoMetadata.fields.Name.label}></lightning-input>
+            
+            <lightning-input label="Nota" type="number"></lightning-input>
+        </section>
+        <section class="slds-form-element" style="padding: 10px;">
+            <label class="slds-form-element__label" for="textarea-id-01">Descrição</label>
+            <div class="slds-form-element__control">
+                <textarea id="textarea-id-01" class="slds-textarea" required></textarea>
+            </div>
+        </section>
+        <section style="right:20px; padding-bottom: 10px; display: flex;">
+            <lightning-button variant="brand" label="Salvar" onclick={saveClick} class="slds-m-left_x-small" style="align-self: flex-end;"></lightning-button>
+        </section>    
+    </div>
+</template>
