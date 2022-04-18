@@ -5,9 +5,9 @@
     border-radius: 5px;
 }
 .label-style{
-    padding-top: 3px;
+    padding-top: 4px;
     font-family: Roboto;
-    font-size: large;
+    font-size: larger;
     color: #2D3D53;
     text-align: center;
 }

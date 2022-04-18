@@ -1,24 +1,24 @@
 <template>
-    <template if:true={avaliacaoMetadata}>
+    <template if:true={avaliacaoMetadata.data}>
         <div class="background-assignment sombra">
 
             <h1 class="label-style">Avaliação</h1>
 
             <section style="display: flex; flex-direction: row; justify-content: space-around;">
 
-                <lightning-input label=""></lightning-input>
+                <lightning-input label={avaliacaoMetadata.data.fields.Name.label}></lightning-input>
                 
                 <template if:true={notaPicklist.data}>
                     <template for:each={notaPicklist.data.values} for:item="item">
-                        <option key={item.value} value={item.value}>{item.value}</option>
+                        <input type="radio" key={item.value} value={item.value}>{item.value}
                     </template>
                 </template>   
 
             </section>
+
             <section class="slds-form-element" style="padding: 10px;">
 
-
-                <label class="slds-form-element__label" for="textarea-id-01"></label>
+                <label class="slds-form-element__label" for="textarea-id-01">{avaliacaoMetadata.data.fields.Descricao__c.label}</label>
 
                 <div class="slds-form-element__control">
                     <textarea id="textarea-id-01" class="slds-textarea" required></textarea>
