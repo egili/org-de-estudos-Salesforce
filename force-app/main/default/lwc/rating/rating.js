@@ -1,18 +1,11 @@
-import { api, LightningElement, wire } from 'lwc';
-import AVALIACAO from '@salesforce/schema/Avaliacao__c'
-import { getObjectInfo } from 'lightning/uiObjectInfoApi';
-
+import { LightningElement, wire } from 'lwc';
+import { getObjectInfo, getPicklistValues } from 'lightning/uiObjectInfoApi';
 
 export default class Rating extends LightningElement {
 
-    @api recordId;
-
-    @wire(getObjectInfo, { objectApiName: AVALIACAO})
-    avaliacaoMetadata({error, data}){
-        if(data){
-            console.log('data' , data);
-        }else{
-            console.log('error' , error);
-        }
-    }
+    @wire(getObjectInfo, { objectApiName: "Avaliacao__c"})
+    avaliacaoMetadata;
+    
+    @wire(getPicklistValues, { recordTypeId: "$avaliacaoMetadata.data.defaultRecordTypeId", fieldApiName: "Nota__c"})
+    notaPicklist;
 }
