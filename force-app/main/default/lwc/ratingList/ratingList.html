@@ -2,39 +2,41 @@
     <div class="background-assignment">
         <h1 class="label-style">Lista de Avaliações</h1>
         
-        <table>
-            <thead>
+        <template if:true={op}>
+            <table>
+                <thead>
+                    <tr>
+                        <th>
+                            <div title="nomeAvaliador" style="text-align: center;"></div>
+                        </th>
+                        <th>
+                            <div title="titulo" style="text-align: center;">{avaliacaoMetadata.data.fields.Name.label}</div>
+                        </th>
+                        <th>
+                            <div title="descrição" style="text-align: center;">{avaliacaoMetadata.data.fields.Descricao__c.label}</div>
+                        </th>
+                        <th>
+                            <div title="nota" style="text-align: center;">{avaliacaoMetadata.data.fields.Nota__c.label}</div>
+                        </th>
+                    </tr>
+                </thead>
+            <tbody>
                 <tr>
-                    <th>
-                        <div title="nomeAvaliador" style="text-align: center;">Nome</div>
-                    </th>
-                    <th>
-                        <div title="titulo" style="text-align: center;">Titulo</div>
-                    </th>
-                    <th>
-                        <div title="descrição" style="text-align: center;">Descricao</div>
-                    </th>
-                    <th>
-                        <div title="nota" style="text-align: center;">Nota</div>
-                    </th>
+                    <td>
+                        <div title="nomeAvaliador" style="text-align: center;"></div>
+                    </td>
+                    <td>
+                        <div title="titulo" style="text-align: center;"></div>
+                    </td>       
+                    <td>
+                        <div title="descrição" style="text-align: center;"></div>
+                    </td>
+                    <td>
+                        <div title="nota" style="text-align: center;"></div>
+                    </td>
                 </tr>
-            </thead>
-        <tbody>
-            <tr>
-                <td>
-                    <div title="nomeAvaliador" style="text-align: center;"></div>
-                </td>
-                <td>
-                    <div title="titulo" style="text-align: center;"></div>
-                </td>       
-                <td>
-                    <div title="descrição" style="text-align: center;"></div>
-                </td>
-                <td>
-                    <div title="nota" style="text-align: center;"></div>
-                </td>
-            </tr>
-        </tbody>
-        </table>
+            </tbody>
+            </table>
+        </template>
     </div>
 </template>
