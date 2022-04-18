@@ -9,11 +9,11 @@
                 <lightning-input label={avaliacaoMetadata.data.fields.Name.label}></lightning-input>
                 
                 <template if:true={notaPicklist.data}>
-                        <lightning-combobox
-                        label={avaliacaoMetadata.data.fields.Nota__c.label}
-                        value={notaPicklist.data}
-                        options={options}>
-                        </lightning-combobox>
+                    <lightning-combobox
+                    label={avaliacaoMetadata.data.fields.Nota__c.label}
+                    options={notaPicklist.data.values}
+                    onchange={handleChange}>
+                    </lightning-combobox>
                 </template>   
 
 
