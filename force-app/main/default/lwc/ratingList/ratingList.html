@@ -20,25 +20,33 @@
                         </th>
                     </tr>
                 </thead>
-            <tbody>
-                <template for:each={avaliacaoMetadata.data.values} for:item="data">
-                    <tr key={data.Id}>
+                <tbody>
+                    <tr>
                         <td>
-                            <span title="titulo" style="text-align: center;">{data.Name}</span>
+                            <div title="nomeAvaliador" style="text-align: center;"></div>
+                        </td>
+                        <td>
+                            <div title="titulo" style="text-align: center;"></div>
                         </td>       
                         <td>
-                            <span title="nota" style="text-align: center;">{data.Nota__c}</span>
+                            <div title="descrição" style="text-align: center;"></div>
                         </td>
                         <td>
-                            <span title="descrição" style="text-align: center;">{data.Descricao__c}</span>
-                        </td>
-                        <td>
-                            <span title="nomeAvaliador" style="text-align: center;">{data.CreatedById}</span>
+                            <div title="nota" style="text-align: center;"></div>
                         </td>
                     </tr>
-                </template>
-            </tbody>
-            </table>
+                </tbody>
+        </table>
+    </template>
+    
+    <template if:true={avaliacaoMetadata.data}>
+            <lightning-datatable
+                key-field="id"
+                data={avaliacaoMetadata.data}
+                columns={columns}
+                show-row-number-column
+                hide-checkbox-column>
+            </lightning-datatable>
         </template>
     </div>
 </template>
