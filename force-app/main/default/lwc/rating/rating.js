@@ -6,6 +6,6 @@ export default class Rating extends LightningElement {
     @wire(getObjectInfo, { objectApiName: "Avaliacao__c"})
     avaliacaoMetadata;
     
-    @wire(getPicklistValues, { recordTypeId: "$avaliacaoMetadata.data.defaultRecordTypeId", fieldApiName: "Nota__c"})
+    @wire(getPicklistValues, { recordTypeId: "$avaliacaoMetadata.data.defaultRecordTypeId", fieldApiName: "Avaliacao__c.Nota__c"})
     notaPicklist;
 }

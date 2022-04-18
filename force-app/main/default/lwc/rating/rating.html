@@ -1,13 +1,17 @@
 <template>
     <template if:true={avaliacaoMetadata}>
         <div class="background-assignment sombra">
+
             <h1 class="label-style">Avaliação</h1>
+
             <section style="display: flex; flex-direction: row; justify-content: space-around;">
 
                 <lightning-input label=""></lightning-input>
                 
                 <template if:true={notaPicklist.data}>
-                    <lightning-input label="" type="number"></lightning-input>
+                    <template for:each={notaPicklist.data.values} for:item="item">
+                        <option key={item.value} value={item.value}>{item.value}</option>
+                    </template>
                 </template>   
 
             </section>
