@@ -3,8 +3,6 @@ import { LightningElement, track, wire } from 'lwc';
 
 export default class RatingList extends LightningElement {
 
-    @track op;
-    
     @wire(getObjectInfo, {objectApiName: 'Avaliacao__c'})
     avaliacaoMetadata;
 

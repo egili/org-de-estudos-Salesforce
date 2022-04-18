@@ -2,12 +2,12 @@
     <div class="background-assignment">
         <h1 class="label-style">Lista de Avaliações</h1>
         
-        <template if:true={op}>
+        <template if:true={avaliacaoMetadata.data}>
             <table>
                 <thead>
                     <tr>
                         <th>
-                            <div title="nomeAvaliador" style="text-align: center;"></div>
+                            <div title="nomeAvaliador" style="text-align: center;">{avaliacaoMetadata.data.fields.OwnerId.label}</div>
                         </th>
                         <th>
                             <div title="titulo" style="text-align: center;">{avaliacaoMetadata.data.fields.Name.label}</div>
