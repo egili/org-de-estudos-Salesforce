@@ -4,13 +4,13 @@ public class ratingController {
         if(titulo == null || nota == null || descricao == null)
 			return null;
         
-        Avaliacao__c av = new Avaliacao__c();
-        av.Name = titulo;
-        av.Nota__c = nota;
-        av.Descricao__c = descricao;
+        Avaliacao__c avaliacao = new Avaliacao__c();
+        avaliacao.Name = titulo;
+        avaliacao.Nota__c = nota;
+        avaliacao.Descricao__c = descricao;
         
-        insert av;
+        insert avaliacao;
         
-        return av;
+        return avaliacao;
     }
 }
