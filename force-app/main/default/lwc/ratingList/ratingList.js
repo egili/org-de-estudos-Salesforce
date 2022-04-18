@@ -6,7 +6,4 @@ export default class RatingList extends LightningElement {
     @wire(getObjectInfo, {objectApiName: 'Avaliacao__c'})
     avaliacaoMetadata;
 
-    renderedCallback() {
-        console.log('data' , this.avaliacaoMetadata)
-    }
 }
