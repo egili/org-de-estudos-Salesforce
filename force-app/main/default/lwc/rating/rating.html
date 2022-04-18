@@ -9,10 +9,13 @@
                 <lightning-input label={avaliacaoMetadata.data.fields.Name.label}></lightning-input>
                 
                 <template if:true={notaPicklist.data}>
-                    <template for:each={notaPicklist.data.values} for:item="item">
-                        <input type="radio" key={item.value} value={item.value}>{item.value}
-                    </template>
+                        <lightning-combobox
+                        label={avaliacaoMetadata.data.fields.Nota__c.label}
+                        value={notaPicklist.data}
+                        options={options}>
+                        </lightning-combobox>
                 </template>   
+
 
             </section>
 
