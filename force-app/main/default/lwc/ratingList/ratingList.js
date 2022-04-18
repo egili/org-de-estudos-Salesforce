@@ -1,5 +1,5 @@
 import { getObjectInfo } from 'lightning/uiObjectInfoApi';
-import { LightningElement, track, wire } from 'lwc';
+import { LightningElement, wire } from 'lwc';
 
 export default class RatingList extends LightningElement {
 
