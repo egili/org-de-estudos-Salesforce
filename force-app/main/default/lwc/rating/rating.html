@@ -1,6 +1,7 @@
 <template>
     <template if:true={avaliacaoMetadata.data}>
-        <div class="background-assignment sombra">
+
+        <main class="background-assignment sombra">
 
             <h1 class="label-style">{avaliacaoMetadata.data.label}</h1>
 
@@ -15,8 +16,6 @@
                     onchange={handleChange}>
                     </lightning-combobox>
                 </template>   
-
-
             </section>
 
             <section class="slds-form-element" style="padding: 10px;">
@@ -27,9 +26,11 @@
                     <textarea id="textarea-id-01" class="slds-textarea" required></textarea>
                 </div>
             </section>
+
             <section style="right:20px; padding-bottom: 10px;">
                 <lightning-button label="Salvar" onclick={saveClick} class="slds-m-left_x-small"></lightning-button>
             </section>    
-        </div>
+            
+        </main>
     </template>
 </template>
