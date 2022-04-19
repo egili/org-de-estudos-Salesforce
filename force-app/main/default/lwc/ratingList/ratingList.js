@@ -6,6 +6,7 @@ import getAccountName from '@salesforce/apex/ratingListController.getAccountName
 export default class RatingList extends LightningElement {
 
     @track avaliacoes; 
+    @track error;
 
     @track colums = [
     {
@@ -24,9 +25,9 @@ export default class RatingList extends LightningElement {
         type: 'text'
     },
     {
-        label: this.autor,
-        fieldName: 'OwnerId',
-        type: 'text'
+        label: 'Account',
+        fieldName: 'Account',
+        type: 'lookup'
     }];
     
     @wire(getAccountName)
@@ -40,6 +41,7 @@ export default class RatingList extends LightningElement {
         if(data)
             this.avaliacoes = data;
         else if (error){
+            this.avaliacoes = undefined;
             console.log('erros ' , error);
             console.log('datas ' , data);
         }
