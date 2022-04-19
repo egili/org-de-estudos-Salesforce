@@ -6,7 +6,6 @@
             <h1 class="label-style">{avaliacaoMetadata.data.label}</h1>
 
             <section style="display: flex; flex-direction: row; justify-content: space-around;">
-
                 <lightning-input label={avaliacaoMetadata.data.fields.Name.label} required></lightning-input>
                 
                 <template if:true={notaPicklist.data}>
@@ -20,7 +19,6 @@
             </section>
 
             <section class="slds-form-element" style="padding: 10px;">
-
                 <label class="slds-form-element__label" for="txtarea">{avaliacaoMetadata.data.fields.Descricao__c.label}</label>
                 <div class="slds-form-element__control">
                     <textarea id="txtarea" class="slds-textarea" required></textarea>
@@ -30,7 +28,6 @@
             <section style="right:20px; padding-bottom: 10px;">
                 <lightning-button label="Salvar" onclick={saveClick} class="slds-m-left_x-small"></lightning-button>
             </section>    
-            
         </main>
     </template>
 </template>
