@@ -8,9 +8,5 @@ public class ratingController {
         avaliacao.Descricao__c = descricao;
         
         insert avaliacao;
-    }
-    
-    public static void getAvalicaoForList(Avaliacao__c av){
-        
-    }
+    }   
 }
