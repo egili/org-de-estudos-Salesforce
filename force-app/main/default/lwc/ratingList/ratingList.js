@@ -1,6 +1,7 @@
 import { getObjectInfo } from 'lightning/uiObjectInfoApi';
 import { LightningElement, track, wire } from 'lwc';
 import getAvaliacaoList from '@salesforce/apex/ratingListController.getAvaliacaoList';
+import getAccountName from '@salesforce/apex/ratingListController.getAccountName';
 
 export default class RatingList extends LightningElement {
 
@@ -8,26 +9,29 @@ export default class RatingList extends LightningElement {
 
     @track colums = [
     {
-        label:'this.titulo',
+        label:this.titulo,
         fieldName: 'Name',
         type: 'text'
     },
     {
-        label: 'this.nota',
+        label: this.nota,
         fieldName: 'Nota__c',
         type: 'text'
     },
     {
-        label: 'this.descricao',
+        label: this.descricao,
         fieldName: 'Descricao__c',
         type: 'text'
     },
     {
-        label: 'this.autor',
+        label: this.autor,
         fieldName: 'OwnerId',
         type: 'text'
     }];
     
+    @wire(getAccountName)
+    accOwnerName;
+
     @wire(getObjectInfo, {objectApiName: 'Avaliacao__c'})
     avaliacaoMetadata;
     
@@ -41,7 +45,7 @@ export default class RatingList extends LightningElement {
         }
     }
 
-   /* get titulo() {
+    get titulo() {
         if(this.avaliacaoMetadata)
             return this.avaliacaoMetadata.data.fields.Name.label;
     }
@@ -55,6 +59,6 @@ export default class RatingList extends LightningElement {
     }
     get autor() {
         if(this.avaliacaoMetadata)
-            return this.avaliacaoMetadata.data.fields.OwnerId.label;
-    }*/
+            return this.accOwnerName.data.fields.Name.label;
+    }
 }
