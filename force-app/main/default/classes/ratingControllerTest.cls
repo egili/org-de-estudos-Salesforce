@@ -6,7 +6,5 @@ public class ratingControllerTest {
         avaliacao1.Name = 'titulo';
         avaliacao1.Nota__c = '1';
         avaliacao1.Descricao__c = 'descricao';
-		
-
     }
 }
