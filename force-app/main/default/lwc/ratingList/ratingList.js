@@ -1,7 +1,6 @@
 import { getObjectInfo } from 'lightning/uiObjectInfoApi';
 import { LightningElement, track, wire } from 'lwc';
 import getAvaliacaoList from '@salesforce/apex/ratingListController.getAvaliacaoList';
-import getAccountName from '@salesforce/apex/ratingListController.getAccountName';
 
 export default class RatingList extends LightningElement {
 
@@ -29,9 +28,6 @@ export default class RatingList extends LightningElement {
         fieldName: 'Account',
         type: 'lookup'
     }];
-    
-    @wire(getAccountName)
-    accOwnerName;
 
     @wire(getObjectInfo, {objectApiName: 'Avaliacao__c'})
     avaliacaoMetadata;
@@ -61,6 +57,6 @@ export default class RatingList extends LightningElement {
     }
     get autor() {
         if(this.avaliacaoMetadata)
-            return this.accOwnerName.data.fields.Name.label;
+            return this.avaliacaoMetadata.data.fields.OwnerId.label;
     }
 }
