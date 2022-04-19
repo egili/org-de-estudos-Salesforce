@@ -7,6 +7,7 @@ export default class Rating extends LightningElement {
     @track nomeAvaliacao;
     @track notaAvalicao;
     @track descricaoAvaliacao;
+    @track isLoading = false;
     @api recordId;
 
     @wire(getObjectInfo, { objectApiName: "Avaliacao__c"})
@@ -28,13 +29,17 @@ export default class Rating extends LightningElement {
 
     insertAvaliacao() {
         includeRating({ titulo: this.nomeAvaliacao, nota: this.notaAvaliacao, descricao: this.descricaoAvaliacao, idConta: "$recordId" })
-        .then(data => {})
+        .then(result => {
+            this.isLoading = false;
+            console.log('result ' , result);
+        })
         .catch(error => {
             console.log('errors ' , error);
         })
     }
 
     saveClick() {
+        this.isLoading = true;
         this.insertAvaliacao();
     }
 }
