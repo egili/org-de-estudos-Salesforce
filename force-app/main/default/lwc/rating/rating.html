@@ -10,11 +10,11 @@
                 
                 <template if:true={notaPicklist.data}>
                     <lightning-combobox
-                    label={avaliacaoMetadata.data.fields.Nota__c.label}
-                    options={notaPicklist.data.values}
-                    onchange={notaSelected}
-                    placeholder="Selecione uma nota"
-                    required>
+                        label={avaliacaoMetadata.data.fields.Nota__c.label}
+                        options={notaPicklist.data.values}
+                        onchange={notaSelected}
+                        placeholder="Selecione uma nota"
+                        required>
                     </lightning-combobox>
                 </template>   
             </section>
