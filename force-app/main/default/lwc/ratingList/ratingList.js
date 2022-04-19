@@ -4,7 +4,7 @@ import getAvaliacaoList from '@salesforce/apex/ratingListController.getAvaliacao
 
 export default class RatingList extends LightningElement {
 
-    @track avaliacoes; 
+   /*@track avaliacoes; 
     @track error;
 
     @track colums = [
@@ -27,35 +27,27 @@ export default class RatingList extends LightningElement {
         label: 'Account',
         fieldName: 'Account',
         type: 'lookup'
-    }];
+    }];*/
 
     @wire(getObjectInfo, {objectApiName: 'Avaliacao__c'})
     avaliacaoMetadata;
     
     @wire(getAvaliacaoList)
-    avaliacaoList({data, error}){
-        if(data)
-            this.avaliacoes = data;
-        else if (error){
-            this.avaliacoes = undefined;
-            console.log('erros ' , error);
-            console.log('datas ' , data);
-        }
-    }
+    avaliacaoList;
 
-    get titulo() {
+    get tituloLabel() {
         if(this.avaliacaoMetadata)
             return this.avaliacaoMetadata.data.fields.Name.label;
     }
-    get nota() {
+    get notaLabel() {
         if(this.avaliacaoMetadata)
             return this.avaliacaoMetadata.data.fields.Nota__c.label;
     }
-    get descricao() {
+    get descricaoLabel() {
         if(this.avaliacaoMetadata)
             return this.avaliacaoMetadata.data.fields.Descricao__c.label;
     }
-    get autor() {
+    get autorLabel() {
         if(this.avaliacaoMetadata)
             return this.avaliacaoMetadata.data.fields.OwnerId.label;
     }
