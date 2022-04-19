@@ -1,14 +1,14 @@
 <template>
-    <div class="background-assignment sombra">
+    <main class="background-assignment sombra">
         <h1 class="label-style">Lista de Avaliações</h1>
         
         <template if:true={avaliacoes}>
             <lightning-datatable
                 key-field="id"
-                data={avaliacoes}
+                data={avaliacaoList}
                 columns={columns}
                 hide-checkbox-column>
             </lightning-datatable>
         </template>    
-    </div>
+    </main>
 </template>
