@@ -1,6 +1,6 @@
 public class ratingController {
 
-    public static Avaliacao__c getAvaliacao(String titulo, String nota, String descricao){
+    public static Avaliacao__c includeRating(String titulo, String nota, String descricao){
         if(titulo == null || nota == null || descricao == null)
 			return null;
         
@@ -13,4 +13,6 @@ public class ratingController {
         
         return avaliacao;
     }
+    
+    public static void getAvalicaoForList(Avaliacao__c av){}
 }

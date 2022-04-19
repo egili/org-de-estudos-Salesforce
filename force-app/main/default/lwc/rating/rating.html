@@ -7,23 +7,23 @@
 
             <section style="display: flex; flex-direction: row; justify-content: space-around;">
 
-                <lightning-input label={avaliacaoMetadata.data.fields.Name.label}></lightning-input>
+                <lightning-input label={avaliacaoMetadata.data.fields.Name.label} required></lightning-input>
                 
                 <template if:true={notaPicklist.data}>
                     <lightning-combobox
                     label={avaliacaoMetadata.data.fields.Nota__c.label}
                     options={notaPicklist.data.values}
-                    onchange={notaSelected}>
+                    onchange={notaSelected}
+                    placeholder="Selecione uma nota">
                     </lightning-combobox>
                 </template>   
             </section>
 
             <section class="slds-form-element" style="padding: 10px;">
 
-                <label class="slds-form-element__label" for="textarea-id-01">{avaliacaoMetadata.data.fields.Descricao__c.label}</label>
-
+                <label class="slds-form-element__label" for="txtarea">{avaliacaoMetadata.data.fields.Descricao__c.label}</label>
                 <div class="slds-form-element__control">
-                    <textarea id="textarea-id-01" class="slds-textarea" required></textarea>
+                    <textarea id="txtarea" class="slds-textarea" required></textarea>
                 </div>
             </section>
 
