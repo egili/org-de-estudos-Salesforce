@@ -2,51 +2,13 @@
     <div class="background-assignment sombra">
         <h1 class="label-style">Lista de Avaliações</h1>
         
-        <template if:true={avaliacaoMetadata.data}>
-            <table>
-                <thead>
-                    <tr>
-                        <th>
-                            <span title="titulo" style="text-align: center;">{avaliacaoMetadata.data.fields.Name.label}</span>
-                        </th>
-                        <th>
-                            <span title="nota" style="text-align: center;">{avaliacaoMetadata.data.fields.Nota__c.label}</span>
-                        </th>
-                        <th>
-                            <span title="descrição" style="text-align: center;">{avaliacaoMetadata.data.fields.Descricao__c.label}</span>
-                        </th>
-                        <th>
-                            <span title="nomeAvaliador" style="text-align: center;">{avaliacaoMetadata.data.fields.CreatedById.label}</span>
-                        </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>
-                            <div title="nomeAvaliador" style="text-align: center;"></div>
-                        </td>
-                        <td>
-                            <div title="titulo" style="text-align: center;"></div>
-                        </td>       
-                        <td>
-                            <div title="descrição" style="text-align: center;"></div>
-                        </td>
-                        <td>
-                            <div title="nota" style="text-align: center;"></div>
-                        </td>
-                    </tr>
-                </tbody>
-        </table>
-    </template>
-    
-    <template if:true={avaliacaoMetadata.data}>
+        <template if:true={avaliacoes}>
             <lightning-datatable
                 key-field="id"
-                data={avaliacaoMetadata.data}
+                data={avaliacoes}
                 columns={columns}
-                show-row-number-column
                 hide-checkbox-column>
             </lightning-datatable>
-        </template>
+        </template>    
     </div>
 </template>
