@@ -1,7 +1,7 @@
-public with sharing class ratingListController {
+public class ratingListController {
 
-    @AuraEnabled
+    @AuraEnabled(cacheable=true)
     public static List<Avaliacao__c> getAvaliacaoList() {
-        return [SELECT Id, Name, Nota__c, Descricao__c, Account__r.Name FROM Avaliacao__c];
+        return [SELECT Id, Name, Nota__c, Descricao__c, OwnerId FROM Avaliacao__c];
     }
 }
