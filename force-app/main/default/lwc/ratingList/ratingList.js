@@ -11,7 +11,6 @@ const colums = [
 export default class RatingList extends LightningElement {
 
     colums = colums;
-
     
     @wire(getObjectInfo, {objectApiName: 'Avaliacao__c'})
     avaliacaoMetadata;
