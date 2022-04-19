@@ -6,13 +6,14 @@
             <h1 class="label-style">{avaliacaoMetadata.data.label}</h1>
 
             <section style="display: flex; flex-direction: row; justify-content: space-around;">
-                <lightning-input label={avaliacaoMetadata.data.fields.Name.label} required></lightning-input>
+                <lightning-input label={avaliacaoMetadata.data.fields.Name.label} name="tituloInput" onchange={handleChange} required></lightning-input>
                 
                 <template if:true={notaPicklist.data}>
                     <lightning-combobox
                         label={avaliacaoMetadata.data.fields.Nota__c.label}
                         options={notaPicklist.data.values}
-                        onchange={notaSelected}
+                        name="notaInput"
+                        onchange={handleChange}
                         placeholder="Selecione uma nota"
                         required>
                     </lightning-combobox>
@@ -22,7 +23,7 @@
             <section class="slds-form-element" style="padding: 10px;">
                 <label class="slds-form-element__label" for="txtarea">{avaliacaoMetadata.data.fields.Descricao__c.label}</label>
                 <div class="slds-form-element__control">
-                    <textarea id="txtarea" class="slds-textarea" required></textarea>
+                    <textarea id="txtarea" class="slds-textarea" name="descricaoInput" onchange={handleChange} required></textarea>
                 </div>
             </section>
 
