@@ -1,8 +1,6 @@
 public class ratingController {
 
-    public static Avaliacao__c includeRating(String titulo, String nota, String descricao){
-        if(titulo == null || nota == null || descricao == null)
-			return null;
+    public static void includeRating(String titulo, String nota, String descricao){
         
         Avaliacao__c avaliacao = new Avaliacao__c();
         avaliacao.Name = titulo;
@@ -10,9 +8,9 @@ public class ratingController {
         avaliacao.Descricao__c = descricao;
         
         insert avaliacao;
-        
-        return avaliacao;
     }
     
-    public static void getAvalicaoForList(Avaliacao__c av){}
+    public static void getAvalicaoForList(Avaliacao__c av){
+        
+    }
 }
