@@ -1,6 +1,6 @@
 public class ratingController {
 
-    @AuraEnabled(cacheable=true)
+    @AuraEnabled
     public static void includeRating(String titulo, String nota, String descricao){
         
         Avaliacao__c avaliacao = new Avaliacao__c();
