@@ -4,7 +4,7 @@ import includeRating from '@salesforce/apex/ratingController.includeRating';
 
 export default class Rating extends LightningElement {
 
-    @track nomeAvaliacao;
+    @track tituloAvaliacao;
     @track notaAvalicao;
     @track descricaoAvaliacao;
     @track isLoading = false;
@@ -18,7 +18,7 @@ export default class Rating extends LightningElement {
     
     handleChange(event) {
         if(event.target.name == 'tituloInput')
-            this.nomeAvaliacao = event.target.value;  
+            this.tituloAvaliacao = event.target.value;  
         
         if(event.target.name == 'notaInput')
             this.notaAvaliacao = event.target.value;  
@@ -28,7 +28,7 @@ export default class Rating extends LightningElement {
     }
 
     insertAvaliacao() {
-        includeRating({ titulo: this.nomeAvaliacao, nota: this.notaAvaliacao, descricao: this.descricaoAvaliacao, idConta: "$recordId" })
+        includeRating({ titulo: this.tituloAvaliacao, nota: this.notaAvaliacao, descricao: this.descricaoAvaliacao, idConta: "$recordId" })
         .then(result => {
             this.isLoading = false;
             console.log('result ' , result);
