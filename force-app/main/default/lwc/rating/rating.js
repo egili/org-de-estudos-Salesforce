@@ -16,6 +16,7 @@ export default class Rating extends LightningElement {
     @wire(getPicklistValues, { recordTypeId: "$avaliacaoMetadata.data.defaultRecordTypeId", fieldApiName: "Avaliacao__c.Nota__c"})
     notaPicklist;
     
+    
     handleChange(event) {
         if(event.target.name == 'tituloInput')
             this.nomeAvaliacao = event.target.value;  
