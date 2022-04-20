@@ -5,22 +5,23 @@
         <template if:true={avaliacaoMetadata.data}>
             <table>
                 <thead>
-                    <tr style="display: flex;justify-content: space-between; padding: 10px;">
+                    <tr style="display: flex;justify-content: space-between; padding: 10px; align-self: center;">
                         <th>
-                            <span title="titulo" style="align-self: center;">{tituloLabel}</span>
+                            <span title="titulo">{tituloLabel}</span>
                         </th>
                         <th>
-                            <span title="nota" style="align-self: center;">{notaLabel}</span>
+                            <span title="nota">{notaLabel}</span>
                         </th>
                         <th>
-                            <span title="descrição" style="align-self: center;">{descricaoLabel}</span>
+                            <span title="descrição">{descricaoLabel}</span>
                         </th>
                         <th>
-                            <span title="nomeAvaliador" style="align-self: center;">{autorLabel}</span>
+                            <span title="nomeAvaliador">{autorLabel}</span>
                         </th>
                     </tr>
                 </thead>
                 <tbody>
+
                     <tr>
                         <td>
                             <span title="nomeAvaliador" style="text-align: center;"></span>
@@ -35,6 +36,7 @@
                             <span title="nota" style="text-align: center;"></span>
                         </td>
                     </tr>
+
                 </tbody>
         </table>
     </template>
