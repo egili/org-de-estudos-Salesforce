@@ -1,6 +1,6 @@
 import { LightningElement, track, wire, api } from 'lwc';
 import { getObjectInfo } from 'lightning/uiObjectInfoApi';
-import getAvaliacaoList from '@salesforce/apex/ratingListController.getAvaliacaoList';
+import getAvaliacaoList from '@salesforce/apex/ratingController.getAvaliacaoList';
 
 export default class RatingList extends LightningElement {
 
