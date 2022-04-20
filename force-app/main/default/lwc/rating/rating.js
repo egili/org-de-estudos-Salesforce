@@ -4,11 +4,11 @@ import includeRating from '@salesforce/apex/ratingController.includeRating';
 
 export default class Rating extends LightningElement {
 
+    @api recordId;
     @track tituloAvaliacao;
     @track notaAvalicao;
     @track descricaoAvaliacao;
-    @track isLoading = false;
-    @api recordId;
+    isLoading = false;
 
     @wire(getObjectInfo, { objectApiName: "Avaliacao__c"})
     avaliacaoMetadata;
