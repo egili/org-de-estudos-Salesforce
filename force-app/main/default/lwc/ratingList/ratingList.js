@@ -34,6 +34,9 @@ export default class RatingList extends LightningElement {
 
     @wire(getObjectInfo, {objectApiName: 'Avaliacao__c'})
     avaliacaoMetadata;
+
+    @wire(getObjectInfo, {objectApiName: 'Account'})
+    accountMetadata;
     
     @wire(getAvaliacaoList , { avaliacaoId : '$recordId' })
     avaliacaoList({error, data}) {
@@ -69,7 +72,7 @@ export default class RatingList extends LightningElement {
     }
 
     get autorLabel() {
-        return this.avaliacaoMetadata ? this.avaliacaoMetadata.data.fields.OwnerId.label : '';
+        return this.accountMetadata ? this.accountMetadata.data.fields.Name.label : '';
     }
     get autorData() {
         return this.avaliacaoList ? this.avaliacaoList.data.fields.OwnerId : '';
