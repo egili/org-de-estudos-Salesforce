@@ -48,38 +48,30 @@ export default class RatingList extends LightningElement {
     }
     
     get tituloLabel() {
-        if(this.avaliacaoMetadata)
-        return this.avaliacaoMetadata.data.fields.Name.label;
+        return this.avaliacaoMetadata ? this.avaliacaoMetadata.data.fields.Name.label : '';
     }
     get tituloData() {
-        if(this.avaliacaoList || this.recordId)
-            return this.avaliacaoList.data.Name;
+        return this.avaliacaoList || this.recordId ? this.avaliacaoList.data.Name : '';
     }
 
     get notaLabel() {
-        if(this.avaliacaoMetadata)
-            return this.avaliacaoMetadata.data.fields.Nota__c.label;
+        return this.avaliacaoMetadata ? this.avaliacaoMetadata.data.fields.Nota__c.label : '';
     }
     get notaData() {
-        if(this.avaliacaoList)
-            return this.avaliacaoList.data.fields.Nota__c;
+        return this.avaliacaoList ? this.avaliacaoList.data.fields.Nota__c : '';
     }
 
     get descricaoLabel() {
-        if(this.avaliacaoMetadata)
-            return this.avaliacaoMetadata.data.fields.Descricao__c.label;
+        return this.avaliacaoMetadata ? this.avaliacaoMetadata.data.fields.Descricao__c.label : '';
     }
     get descricaoData() {
-        if(this.avaliacaoList)
-            return this.avaliacaoList.data.fields.Descricao__c;
+        return this.avaliacaoList ? this.avaliacaoList.data.fields.Descricao__c : '';
     }
 
     get autorLabel() {
-        if(this.avaliacaoMetadata)
-            return this.avaliacaoMetadata.data.fields.OwnerId.label;
+        return this.avaliacaoMetadata ? this.avaliacaoMetadata.data.fields.OwnerId.label : '';
     }
     get autorData() {
-        if(this.avaliacaoList)
-            return this.avaliacaoList.data.fields.OwnerId;
+        return this.avaliacaoList ? this.avaliacaoList.data.fields.OwnerId : '';
     }
 }
