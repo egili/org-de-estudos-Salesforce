@@ -25,7 +25,7 @@ export default class Rating extends LightningElement {
     }
 
     insertAvaliacao() {
-        includeRating({ titulo: this.tituloAvaliacao, nota: this.notaAvaliacao, descricao: this.descricaoAvaliacao, idConta: "$recordId" })
+        includeRating({ titulo: this.tituloAvaliacao, nota: this.notaAvaliacao, descricao: this.descricaoAvaliacao, idConta: this.recordId })
         .then(result => {
             this.isLoading = false;
             console.log('result ' , result);
