@@ -17,14 +17,11 @@ export default class Rating extends LightningElement {
     notaPicklist;
     
     handleChange(event) {
-        if(event.target.name == 'tituloInput')
-            this.tituloAvaliacao = event.target.value;  
+        event.target.name == 'tituloInput' ? this.tituloAvaliacao = event.target.value : '';
         
-        if(event.target.name == 'notaInput')
-            this.notaAvaliacao = event.target.value;  
+        event.target.name == 'notaInput' ? this.notaAvaliacao = event.target.value : '';  
         
-        if(event.target.name == 'descricaoInput')
-            this.descricaoAvaliacao = event.target.value;  
+        event.target.name == 'descricaoInput' ? this.descricaoAvaliacao = event.target.value : '';  
     }
 
     insertAvaliacao() {
