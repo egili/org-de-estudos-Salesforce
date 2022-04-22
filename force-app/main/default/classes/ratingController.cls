@@ -12,6 +12,7 @@ public class ratingController {
 
         insert avaliacao;
     }   
+
     @AuraEnabled(cacheable=true)
     public static Account getRatingAuthor(String authorId){
         return [SELECT Name, OwnerId from Account WHERE OwnerId =: authorId LIMIT 1];

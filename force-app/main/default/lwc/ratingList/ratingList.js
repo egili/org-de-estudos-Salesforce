@@ -14,7 +14,7 @@ export default class RatingList extends LightningElement {
     accountMetadata;
 
     @wire( getAvaliacaoList , { accountId : '$recordId' })
-    getListaAvaliacao({data}) {
+    getListaAvaliacao({ data}) {
         if(data)
             this.objAvaliacaoLista = data;
     }
