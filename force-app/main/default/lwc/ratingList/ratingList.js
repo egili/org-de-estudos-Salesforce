@@ -38,16 +38,29 @@ export default class RatingList extends LightningElement {
     @wire(getObjectInfo, {objectApiName: 'Account'})
     accountMetadata;
     
-    @wire(getAvaliacaoList , { avaliacaoId : '$recordId' })
+    /*@wire(getAvaliacaoList , { avaliacaoId : '$recordId' })
     avaliacaoList({error, data}) {
         if(data){
             this.dados = data;
+            console.log('datas ', data);
             this.error = undefined;
         } else if(error){
             this.error = error;
+            console.log('datas error ', data);
             this.data = undefined;
             console.log('errors ' , error);
         }
+    }*/
+
+    getListaAvaliacao() {
+        getAvaliacaoList({ avaliacaoId : this.recordId })
+        .then(result => {
+            if(result)
+                this.data = result;
+        })
+        .catch(error => {
+            console.log('grt ' , error);
+        })
     }
     
     get tituloLabel() {
