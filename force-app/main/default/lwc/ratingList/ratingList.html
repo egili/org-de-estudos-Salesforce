@@ -25,22 +25,22 @@
                     <template for:each={objAvaliacaoLista} for:item="data">
                         <tr style="text-align: center;" key={data.Id}>
                             <td>
-                                <span title="nomeAvaliador"></span>
-                            </td>
-                            <td>
                                 <span title="titulo">{data.Name}</span>
                             </td>       
+                            <td>
+                                <span title="nota">{data.Nota__c}</span>
+                            </td>
                             <td>
                                 <span title="descricao">{data.Descricao__c}</span>
                             </td>
                             <td>
-                                <span title="nota">{data.Nota__c}</span>
+                                <span title="nomeAvaliador"></span>
                             </td>
                         </tr>
                     </template>
                 </tbody>
 
-        </table>
-    </template>
+            </table>
+        </template>
     </main>
 </template>
