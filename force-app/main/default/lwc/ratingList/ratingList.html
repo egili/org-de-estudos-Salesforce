@@ -20,36 +20,27 @@
                         </th>
                     </tr>
                 </thead>
+
                 <tbody>
-
-                    <tr style="text-align: center;">
-                        <td>
-                            <span title="nomeAvaliador"></span>
-                        </td>
-                        <td>
-                            <span title="titulo"></span>
-                        </td>       
-                        <td>
-                            <span title="descricao"></span>
-                        </td>
-                        <td>
-                            <span title="nota"></span>
-                        </td>
-                    </tr>
-
+                    <template for:each={objAvaliacaoLista} for:item="data">
+                        <tr style="text-align: center;" key={data.Id}>
+                            <td>
+                                <span title="titulo">{data.Name}</span>
+                            </td>       
+                            <td>
+                                <span title="nota">{data.Nota__c}</span>
+                            </td>
+                            <td>
+                                <span title="descricao">{data.Descricao__c}</span>
+                            </td>
+                            <td>
+                                <span title="nomeAvaliador"></span>
+                            </td>
+                        </tr>
+                    </template>
                 </tbody>
-        </table>
-    </template>
-    
-        <!--template if:true={avaliacaoMetadata.data}>
-            <lightning-datatable
-                key-field="id"
-                data={avaliacaoMetadata.data}
-                columns={columns}
-                show-row-number-column
-                hide-checkbox-column>
-            </lightning-datatable>
-        </template-->
-        
+
+            </table>
+        </template>
     </main>
 </template>
