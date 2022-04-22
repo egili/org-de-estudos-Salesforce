@@ -4,8 +4,8 @@ import getAvaliacaoList from '@salesforce/apex/ratingController.getAvaliacaoList
 
 export default class RatingList extends LightningElement {
 
-    @track objAvaliacaoLista;
     @api recordId;
+    @track objAvaliacaoLista;
 
     @wire(getObjectInfo, {objectApiName: 'Avaliacao__c'})
     avaliacaoMetadata;
