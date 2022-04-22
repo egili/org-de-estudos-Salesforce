@@ -5,9 +5,9 @@ import includeRating from '@salesforce/apex/ratingController.includeRating';
 export default class Rating extends LightningElement {
 
     @api recordId;
-    @track tituloAvaliacao;
-    @track notaAvalicao;
-    @track descricaoAvaliacao;
+    @track tituloInput;
+    @track notaInput;
+    @track descricaoInput;
     isLoading = false;
 
     @wire(getObjectInfo, { objectApiName: "Avaliacao__c"})
@@ -17,15 +17,12 @@ export default class Rating extends LightningElement {
     notaPicklist;
     
     handleChange(event) {
-        event.target.name == 'tituloInput' ? this.tituloAvaliacao = event.target.value : '';
-        
-        event.target.name == 'notaInput' ? this.notaAvaliacao = event.target.value : '';  
-        
-        event.target.name == 'descricaoInput' ? this.descricaoAvaliacao = event.target.value : '';  
+        this[event.target.name] = event.target.value;
     }
 
     insertAvaliacao() {
-        includeRating({ titulo: this.tituloAvaliacao, nota: this.notaAvaliacao, descricao: this.descricaoAvaliacao, idConta: this.recordId })
+        this.isLoading = true;
+        includeRating({ titulo: this.tituloInput, nota: this.notaInput, descricao: this.descricaoInput, idConta: this.recordId })
         .then(result => {
             this.isLoading = false;
             console.log('result ' , result);
@@ -33,10 +30,5 @@ export default class Rating extends LightningElement {
         .catch(error => {
             console.log('errors ' , error);
         })
-    }
-
-    saveClick() {
-        this.isLoading = true;
-        this.insertAvaliacao();
     }
 }
