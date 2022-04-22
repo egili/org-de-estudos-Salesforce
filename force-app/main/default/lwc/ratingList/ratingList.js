@@ -1,6 +1,6 @@
 import { LightningElement, track, wire, api } from 'lwc';
 import { getObjectInfo } from 'lightning/uiObjectInfoApi';
-import getAvaliacaoList from '@salesforce/apex/ratingListController.getAvaliacaoList';
+import getAvaliacaoList from '@salesforce/apex/ratingController.getAvaliacaoList';
 
 export default class RatingList extends LightningElement {
 
@@ -34,52 +34,60 @@ export default class RatingList extends LightningElement {
 
     @wire(getObjectInfo, {objectApiName: 'Avaliacao__c'})
     avaliacaoMetadata;
+
+    @wire(getObjectInfo, {objectApiName: 'Account'})
+    accountMetadata;
     
-    @wire(getAvaliacaoList , { avaliacaoId : '$recordId' })
+    /*@wire(getAvaliacaoList , { avaliacaoId : '$recordId' })
     avaliacaoList({error, data}) {
         if(data){
             this.dados = data;
+            console.log('datas ', data);
             this.error = undefined;
         } else if(error){
             this.error = error;
+            console.log('datas error ', data);
             this.data = undefined;
             console.log('errors ' , error);
         }
+    }*/
+
+    getListaAvaliacao() {
+        getAvaliacaoList({ avaliacaoId : this.recordId })
+        .then(result => {
+            if(result)
+                this.data = result;
+        })
+        .catch(error => {
+            console.log('grt ' , error);
+        })
     }
     
     get tituloLabel() {
-        if(this.avaliacaoMetadata)
-        return this.avaliacaoMetadata.data.fields.Name.label;
+        return this.avaliacaoMetadata ? this.avaliacaoMetadata.data.fields.Name.label : '';
     }
     get tituloData() {
-        if(this.avaliacaoList || this.recordId)
-            return this.avaliacaoList.data.Name;
+        return this.avaliacaoList || this.recordId ? this.avaliacaoList.data.Name : '';
     }
 
     get notaLabel() {
-        if(this.avaliacaoMetadata)
-            return this.avaliacaoMetadata.data.fields.Nota__c.label;
+        return this.avaliacaoMetadata ? this.avaliacaoMetadata.data.fields.Nota__c.label : '';
     }
     get notaData() {
-        if(this.avaliacaoList)
-            return this.avaliacaoList.data.fields.Nota__c;
+        return this.avaliacaoList ? this.avaliacaoList.data.fields.Nota__c : '';
     }
 
     get descricaoLabel() {
-        if(this.avaliacaoMetadata)
-            return this.avaliacaoMetadata.data.fields.Descricao__c.label;
+        return this.avaliacaoMetadata ? this.avaliacaoMetadata.data.fields.Descricao__c.label : '';
     }
     get descricaoData() {
-        if(this.avaliacaoList)
-            return this.avaliacaoList.data.fields.Descricao__c;
+        return this.avaliacaoList ? this.avaliacaoList.data.fields.Descricao__c : '';
     }
 
     get autorLabel() {
-        if(this.avaliacaoMetadata)
-            return this.avaliacaoMetadata.data.fields.OwnerId.label;
+        return this.accountMetadata ? this.accountMetadata.data.fields.Name.label : '';
     }
     get autorData() {
-        if(this.avaliacaoList)
-            return this.avaliacaoList.data.fields.OwnerId;
+        return this.avaliacaoList ? this.avaliacaoList.data.fields.OwnerId : '';
     }
 }

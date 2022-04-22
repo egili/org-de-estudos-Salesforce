@@ -5,36 +5,38 @@
         <template if:true={avaliacaoMetadata.data}>
             <table>
                 <thead>
-                    <tr style="display: flex;justify-content: space-between; padding: 10px;">
+                    <tr style="display: flex;justify-content: space-around; padding: 10px; align-items: center;">
                         <th>
-                            <span title="titulo" style="align-self: center;">{tituloLabel}</span>
+                            <span title="titulo">{tituloLabel}</span>
                         </th>
                         <th>
-                            <span title="nota" style="align-self: center;">{notaLabel}</span>
+                            <span title="nota">{notaLabel}</span>
                         </th>
                         <th>
-                            <span title="descrição" style="align-self: center;">{descricaoLabel}</span>
+                            <span title="descrição">{descricaoLabel}</span>
                         </th>
                         <th>
-                            <span title="nomeAvaliador" style="align-self: center;">{autorLabel}</span>
+                            <span title="nomeAvaliador">{autorLabel}</span>
                         </th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
+
+                    <tr style="text-align: center;">
                         <td>
-                            <span title="nomeAvaliador" style="text-align: center;"></span>
+                            <span title="nomeAvaliador"></span>
                         </td>
                         <td>
-                            <span title="titulo" style="text-align: center;"></span>
+                            <span title="titulo"></span>
                         </td>       
                         <td>
-                            <span title="descrição" style="text-align: center;"></span>
+                            <span title="descricao"></span>
                         </td>
                         <td>
-                            <span title="nota" style="text-align: center;"></span>
+                            <span title="nota"></span>
                         </td>
                     </tr>
+
                 </tbody>
         </table>
     </template>
@@ -48,5 +50,6 @@
                 hide-checkbox-column>
             </lightning-datatable>
         </template-->
+        
     </main>
 </template>
