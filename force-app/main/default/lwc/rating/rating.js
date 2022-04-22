@@ -1,13 +1,13 @@
-import { LightningElement, track, wire, api} from 'lwc';
+import { LightningElement, wire, api} from 'lwc';
 import { getObjectInfo, getPicklistValues } from 'lightning/uiObjectInfoApi';
 import includeRating from '@salesforce/apex/ratingController.includeRating';
 
 export default class Rating extends LightningElement {
 
     @api recordId;
-    @track tituloInput;
-    @track notaInput;
-    @track descricaoInput;
+    tituloInput;
+    notaInput;
+    descricaoInput;
     isLoading = false;
 
     @wire(getObjectInfo, { objectApiName: "Avaliacao__c"})
