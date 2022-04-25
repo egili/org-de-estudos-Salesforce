@@ -3,9 +3,9 @@
         <h1 class="label-style">Lista de Avaliações</h1>
         
         <template if:true={avaliacaoMetadata.data}>
-            <table>
+            <table class="slds-table slds-table_cell-buffer slds-table_bordered">
                 <thead>
-                    <tr style="display: flex;justify-content: space-around; padding: 10px; align-items: center;">
+                    <tr class="slds-line-height_reset">
                         <th>
                             <span title="titulo">{tituloLabel}</span>
                         </th>
@@ -16,7 +16,7 @@
                             <span title="descrição">{descricaoLabel}</span>
                         </th>
                         <th>
-                            <span title="nomeAvaliador">{autorLabel}</span>
+                            <span title="nomeAvaliador">Autor</span>
                         </th>
                     </tr>
                 </thead>
@@ -39,7 +39,6 @@
                         </tr>
                     </template>
                 </tbody>
-
             </table>
         </template>
     </main>
