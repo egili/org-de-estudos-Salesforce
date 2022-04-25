@@ -19,6 +19,11 @@ export default class Rating extends LightningElement {
     handleChange(event) {
         this[event.target.name] = event.target.value;
     }
+    
+   /* clearInputFields(event) {
+        if(event.target.value != '')
+            event.target.value = '';
+    }*/
 
     insertAvaliacao() {
         this.isLoading = true;
@@ -26,6 +31,7 @@ export default class Rating extends LightningElement {
         .then(result => {
             this.isLoading = false;
             console.log('result ' , result);
+         //   this.clearInputFields();
         })
         .catch(error => {
             console.log('errors ' , error);
