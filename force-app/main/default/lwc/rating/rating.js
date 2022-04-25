@@ -20,7 +20,7 @@ export default class Rating extends LightningElement {
         this[event.target.name] = event.target.value;
     }
     
-   /* clearInputFields(event) {
+  /*  clearInputFields(event) {
         if(event.target.value != '')
             event.target.value = '';
     }*/
@@ -31,7 +31,7 @@ export default class Rating extends LightningElement {
         .then(result => {
             this.isLoading = false;
             console.log('result ' , result);
-         //   this.clearInputFields();
+          //  this.clearInputFields();
         })
         .catch(error => {
             console.log('errors ' , error);

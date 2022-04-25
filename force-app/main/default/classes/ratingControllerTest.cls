@@ -3,7 +3,7 @@ public class ratingControllerTest {
 
     @isTest
     static void makeData() {
-    
+        
         Account acc = new Account();
         acc.Name = 'acc name';
         insert acc;
