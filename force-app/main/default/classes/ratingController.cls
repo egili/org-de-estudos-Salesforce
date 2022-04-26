@@ -11,13 +11,8 @@ public class ratingController {
         insert avaliacao;
     }   
 
-    /*@AuraEnabled(cacheable=true)
-    public static Account getRatingAuthor(String authorId){
-        return [SELECT Name, OwnerId from Account WHERE OwnerId =: authorId LIMIT 1];
-    }*/
-
     @AuraEnabled(cacheable=true)
     public static List<Avaliacao__c> getAvaliacaoList(String accountId) {
-        return [SELECT Id, Name, Nota__c, Descricao__c, Account__r.Name FROM Avaliacao__c WHERE Account__c =: accountId];
+        return [SELECT Id, Name, Nota__c, Descricao__c, Autor__c FROM Avaliacao__c WHERE Account__c =: accountId];
     }
 }
