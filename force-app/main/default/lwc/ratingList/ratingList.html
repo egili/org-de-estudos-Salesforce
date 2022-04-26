@@ -15,9 +15,11 @@
                         <th>
                             <span title="descricao">{descricaoLabel}</span>
                         </th>
-                        <th>
-                            <span title="nomeAvaliador">{autorLabel}</span>
-                        </th>
+                        <template if:true={userMetadata.data}>
+                            <th>
+                                <span title="nomeAvaliador">{autorLabel}</span>
+                            </th>
+                        </template>
                     </tr>
                 </thead>
 
