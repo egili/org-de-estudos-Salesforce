@@ -19,19 +19,19 @@ export default class Rating extends LightningElement {
     handleChange(event) {
         this[event.target.name] = event.target.value;
     }
-    
-  /*  clearInputFields(event) {
-        if(event.target.value != '')
-            event.target.value = '';
-    }*/
+
+    handleReset(){
+        this.template.querySelector('lightning-input').value = null;
+        this.template.querySelector('lightning-combobox').value = null;
+        this.template.querySelector('textarea').value = null;
+    }
 
     insertAvaliacao() {
         this.isLoading = true;
         includeRating({ titulo: this.tituloInput, nota: this.notaInput, descricao: this.descricaoInput, idConta: this.recordId })
         .then(result => {
             this.isLoading = false;
-            console.log('result ' , result);
-          //  this.clearInputFields();
+            this.handleReset();
         })
         .catch(error => {
             console.log('errors ' , error);
