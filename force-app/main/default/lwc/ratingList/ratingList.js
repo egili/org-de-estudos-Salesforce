@@ -1,6 +1,7 @@
 import { LightningElement, track, wire, api } from 'lwc';
 import { getObjectInfo } from 'lightning/uiObjectInfoApi';
 import getAvaliacaoList from '@salesforce/apex/ratingController.getAvaliacaoList';
+import getRatingAuthor from  '@salesforce/apex/ratingController.getRatingAuthor';
 
 export default class RatingList extends LightningElement {
 
@@ -9,6 +10,9 @@ export default class RatingList extends LightningElement {
 
     @wire(getObjectInfo, {objectApiName: 'Avaliacao__c'})
     avaliacaoMetadata;
+
+    @wire(getObjectInfo, {objectApiName: 'User'})
+    userMetadata;
 
     @wire(getAvaliacaoList , {accountId : '$recordId'})
     getListaAvaliacao({data}) {
@@ -26,6 +30,6 @@ export default class RatingList extends LightningElement {
         return this.avaliacaoMetadata ? this.avaliacaoMetadata.data.fields.Descricao__c.label : '';
     }
     get autorLabel() {
-        return this.avaliacaoMetadata ? this.avaliacaoMetadata.data.fields.OwnerId.label : '';
+        return this.userMetadata ? this.userMetadata.data.fields.Name.label : '';
     }
 }
