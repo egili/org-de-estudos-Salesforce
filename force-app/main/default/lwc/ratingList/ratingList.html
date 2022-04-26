@@ -17,7 +17,7 @@
                         </th>
                         <template if:true={userMetadata.data}>
                             <th>
-                                <span title="nomeAvaliador">{autorLabel}</span>
+                                <span title="nomeAvaliador">autor</span>
                             </th>
                         </template>
                     </tr>
@@ -36,12 +36,15 @@
                                 <span title="descricao">{data.Descricao__c}</span>
                             </td>
                             <td>
-                                <span title="nomeAvaliador">{data.OwnerId}</span>
+                                <span title="nomeAvaliador">{data.Autor__c}</span>
                             </td>
                         </tr>
                     </template>
                 </tbody>
             </table>
+
+            <article>Média da conta:</article>
+
         </template>
     </main>
 </template>
