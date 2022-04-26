@@ -13,10 +13,10 @@
                             <span title="nota">{notaLabel}</span>
                         </th>
                         <th>
-                            <span title="descrição">{descricaoLabel}</span>
+                            <span title="descricao">{descricaoLabel}</span>
                         </th>
                         <th>
-                            <span title="nomeAvaliador">Autor</span>
+                            <span title="nomeAvaliador">{autorLabel}</span>
                         </th>
                     </tr>
                 </thead>
@@ -34,7 +34,7 @@
                                 <span title="descricao">{data.Descricao__c}</span>
                             </td>
                             <td>
-                                <span title="nomeAvaliador"></span>
+                                <span title="nomeAvaliador">{data.OwnerId}</span>
                             </td>
                         </tr>
                     </template>
