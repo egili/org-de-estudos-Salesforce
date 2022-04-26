@@ -20,7 +20,7 @@ export default class Rating extends LightningElement {
         this[event.target.name] = event.target.value;
     }
 
-    handleReset(){
+    clearInputFields(){
         this.template.querySelector('lightning-input').value = null;
         this.template.querySelector('lightning-combobox').value = null;
         this.template.querySelector('textarea').value = null;
@@ -31,7 +31,7 @@ export default class Rating extends LightningElement {
         includeRating({ titulo: this.tituloInput, nota: this.notaInput, descricao: this.descricaoInput, idConta: this.recordId })
         .then(result => {
             this.isLoading = false;
-            this.handleReset();
+            this.clearInputFields();
         })
         .catch(error => {
             console.log('errors ' , error);
