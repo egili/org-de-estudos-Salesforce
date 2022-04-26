@@ -13,6 +13,6 @@ public class ratingController {
 
     @AuraEnabled(cacheable=true)
     public static List<Avaliacao__c> getAvaliacaoList(String accountId) {
-        return [SELECT Id, Name, Nota__c, Descricao__c, OwnerId FROM Avaliacao__c WHERE Account__c =: accountId];
+        return [SELECT Id, Name, Nota__c, Descricao__c, OwnerId, Autor__c FROM Avaliacao__c WHERE Account__c =: accountId];
     }
 }
