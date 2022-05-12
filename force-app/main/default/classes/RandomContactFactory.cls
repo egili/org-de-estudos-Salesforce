@@ -8,6 +8,7 @@ public class RandomContactFactory {
             Contact c = new Contact();
             c.FirstName = 'Test ' +i;
             c.lastName=sobrenomesDosContatos;
+            
             cttList.add(c);
         }
         
