@@ -1,4 +1,4 @@
-trigger ContactTrigger on Contact (before insert, after insert, before update, after update) {
+trigger ContactTrigger on Contact (before insert, after insert) {
 
     //Criar registro de conta sempre que um novo contato for criado sem uma conta.
     list<account> acclist = new list<account>();
