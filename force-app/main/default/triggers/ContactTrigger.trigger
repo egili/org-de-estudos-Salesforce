@@ -2,7 +2,6 @@ trigger ContactTrigger on Contact (before insert, after insert) {
 
     //Criar registro de conta sempre que um novo contato for criado sem uma conta.
     list<account> acclist = new list<account>();
-    list<contact> cttlist = new list<contact>();
     
     for(Contact c: trigger.new){
         if(c.AccountId == null){
@@ -11,8 +10,14 @@ trigger ContactTrigger on Contact (before insert, after insert) {
             acclist.add(a);
         }
     }
+    
     system.debug('contasd ' + acclist);
-    if(acclist.size() > 0){
+
+    if(!acclist.isEmpty()){
         insert acclist; 
     }
 }
+
+//dois problemas:
+//cria duas contas 
+//nenhuma vinculada ao contato criado
